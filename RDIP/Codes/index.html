@@ -14,13 +14,13 @@
             <option value="2">Hindi</option>
         </select>
         <div>
-            <p hidden id="text">
+            <p hidden id="text" style="color: blue;">
                 <b>Form a sentence (Declarative or Interrogative or any other type) from the given words</b><br>
                 <i>(select the buttons in proper order)</i>
             </p>
             <div hidden id="but">
             </div>
-            <p hidden id="text2">
+            <p hidden id="text2"  style="color: blue;">
                 <b>Formed Sentence</b><br>               
                 <i>(after selecting the words)</i>
             </p>
@@ -30,8 +30,16 @@
             </button><br><br>
             <button hidden id="checkBut" onclick="checkFun()">Check the correctness of this sentence
             </button>
-            <h4 hidden id="correctAns">
-            </h4>
+            <div>
+                <h2 hidden id="rightAns" style="color: green;">
+                    Right Answer!!!
+                </h2>
+                <h2 hidden id="wrongAns" style="color: red;">
+                    Wrong Answer!!!
+                </h2>
+            </div>
+            <button hidden id = "getCorrectBut">Get Correct Sentence
+            </button>
         </div>
     </div>
     <script src="/script.js"></script>

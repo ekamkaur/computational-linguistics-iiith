@@ -125,18 +125,26 @@ let butReform = document.getElementById('reformBut');
 let butCheck = document.getElementById('checkBut');
 let sen = null;
 let lenRemain = null;
+let  allSen = null;
+let ansRight = document.getElementById('rightAns');
+let ansWrong = document.getElementById('wrongAns');
+let butGetCorrect = document.getElementById('getCorrectBut');
 function Hidden(e)
 {
     butReform.setAttribute("hidden", false);
     p2.setAttribute("hidden", false);
     butText.innerText = '';
     butCheck.setAttribute("hidden", false);
+    ansRight.setAttribute("hidden", false);
+    ansWrong.setAttribute("hidden", false);
+    butGetCorrect.setAttribute("hidden", false);
     if ( e.value == '1' )
       {
         p.removeAttribute("hidden");
         butdiv.removeAttribute("hidden");
         butdiv.innerHTML = '<br>';
-        sen = english[Math.floor(Math.random() * 10)][0].split(' ');
+        allSen = english[Math.floor(Math.random() * 10)];
+        sen = allSen[0].split(' ');
         lenRemain = sen.length;
         sen.sort(function(a, b){return 0.5 - Math.random()});
         for (let i = 0; i < sen.length; i++)
@@ -149,7 +157,8 @@ function Hidden(e)
         p.removeAttribute("hidden");
         butdiv.removeAttribute("hidden");
         butdiv.innerHTML = '<br>';
-        sen = hindi[Math.floor(Math.random() * 7)][0].split(' ');
+        allSen = hindi[Math.floor(Math.random() * 7)];
+        sen = allSen[0].split(' ');
         lenRemain = sen.length;
         sen.sort(function(a, b){return 0.5 - Math.random()});
         for (let i = 0; i < sen.length; i++)
@@ -189,8 +198,27 @@ function reformFun()
         butdiv.innerHTML = butdiv.innerHTML + '<span>&nbsp<button onclick="butClick(this)">' + sen[i] + '</button>&nbsp</span>';
     }
     butCheck.setAttribute("hidden", false);
+    ansRight.setAttribute("hidden", false);
+    ansWrong.setAttribute("hidden", false);
+    butGetCorrect.setAttribute("hidden", false);
+    lenRemain = sen.length;
 }
 function checkFun()
 {
     let s = butText.innerText;
+    let f = true;
+    for(let i=0;i<allSen.length;i++)
+    {
+        if(s===allSen[i])
+        {
+            ansRight.removeAttribute("hidden");
+            f = false;
+            break;
+        }
+    }
+    if(f)
+    {
+        ansWrong.removeAttribute("hidden");
+        butGetCorrect.removeAttribute("hidden");
+    }
 }
