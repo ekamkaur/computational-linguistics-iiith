@@ -212,6 +212,8 @@ function reformFun()
 }
 function checkFun()
 {
+    senCorrect.setAttribute("hidden", false);
+    butGetCorrect.innerText="Get Correct Sentence";
     let s = butText.innerText;
     let f = true;
     for(let i=0; i<allSen.length; i++)
