@@ -117,3 +117,15 @@ hindi = [
         "है वहाँ बड़ी सी एक किताब"
     ]
 ]
+let p = document.getElementById('text');
+function Hidden(e)
+{
+    if ( e.value == '1' || e.value == '2' )
+      {
+        p.removeAttribute("hidden");
+      }
+    else
+      {
+        p.setAttribute("hidden", false);
+      }
+}
