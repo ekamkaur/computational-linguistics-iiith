@@ -121,19 +121,23 @@ let p = document.getElementById('text');
 let butdiv = document.getElementById('but');
 let p2 = document.getElementById('text2');
 let butText = document.getElementById('textBut');
-let butReform= document.getElementById('reformBut');
+let butReform = document.getElementById('reformBut');
+let butCheck = document.getElementById('checkBut');
 let sen = null;
+let lenRemain = null;
 function Hidden(e)
 {
     butReform.setAttribute("hidden", false);
     p2.setAttribute("hidden", false);
     butText.innerText = '';
+    butCheck.setAttribute("hidden", false);
     if ( e.value == '1' )
       {
         p.removeAttribute("hidden");
         butdiv.removeAttribute("hidden");
         butdiv.innerHTML = '<br>';
         sen = english[Math.floor(Math.random() * 10)][0].split(' ');
+        lenRemain = sen.length;
         sen.sort(function(a, b){return 0.5 - Math.random()});
         for (let i = 0; i < sen.length; i++)
         {
@@ -146,6 +150,7 @@ function Hidden(e)
         butdiv.removeAttribute("hidden");
         butdiv.innerHTML = '<br>';
         sen = hindi[Math.floor(Math.random() * 7)][0].split(' ');
+        lenRemain = sen.length;
         sen.sort(function(a, b){return 0.5 - Math.random()});
         for (let i = 0; i < sen.length; i++)
         {
@@ -157,6 +162,7 @@ function Hidden(e)
         p.setAttribute("hidden", false);
         butdiv.setAttribute("hidden", false);
         sen = null;
+        lenRemain = null;
       }
 }
 function butClick(e)
@@ -166,6 +172,10 @@ function butClick(e)
     butText.innerText = butText.innerText + ' ' + e.innerText;
     butReform.removeAttribute("hidden");
     e.parentElement.setAttribute("hidden", false);
+    lenRemain--;
+    if(lenRemain===0)
+    butCheck.removeAttribute("hidden");
+
 }
 function reformFun()
 {
@@ -178,4 +188,9 @@ function reformFun()
     {
         butdiv.innerHTML = butdiv.innerHTML + '<span>&nbsp<button onclick="butClick(this)">' + sen[i] + '</button>&nbsp</span>';
     }
+    butCheck.setAttribute("hidden", false);
+}
+function checkFun()
+{
+    let s = butText.innerText;
 }
