@@ -129,6 +129,7 @@ let  allSen = null;
 let ansRight = document.getElementById('rightAns');
 let ansWrong = document.getElementById('wrongAns');
 let butGetCorrect = document.getElementById('getCorrectBut');
+let senCorrect = document.getElementById('correctSen');
 function Hidden(e)
 {
     butReform.setAttribute("hidden", false);
@@ -137,7 +138,10 @@ function Hidden(e)
     butCheck.setAttribute("hidden", false);
     ansRight.setAttribute("hidden", false);
     ansWrong.setAttribute("hidden", false);
+    butGetCorrect.innerText="Get Correct Sentence";
     butGetCorrect.setAttribute("hidden", false);
+    senCorrect.setAttribute("hidden", false);
+    senCorrect.innerHTML = '';
     if ( e.value == '1' )
       {
         p.removeAttribute("hidden");
@@ -192,6 +196,10 @@ function reformFun()
     butText.innerText = '';
     butText.setAttribute("hidden", false);
     butReform.setAttribute("hidden", false);
+    senCorrect.setAttribute("hidden", false);
+    butGetCorrect.innerText="Get Correct Sentence";
+    butGetCorrect.setAttribute("hidden", false);
+    senCorrect.innerHTML = '';
     butdiv.innerHTML = '<br>';
     for (let i = 0; i < sen.length; i++)
     {
@@ -200,14 +208,13 @@ function reformFun()
     butCheck.setAttribute("hidden", false);
     ansRight.setAttribute("hidden", false);
     ansWrong.setAttribute("hidden", false);
-    butGetCorrect.setAttribute("hidden", false);
     lenRemain = sen.length;
 }
 function checkFun()
 {
     let s = butText.innerText;
     let f = true;
-    for(let i=0;i<allSen.length;i++)
+    for(let i=0; i<allSen.length; i++)
     {
         if(s===allSen[i])
         {
@@ -220,5 +227,30 @@ function checkFun()
     {
         ansWrong.removeAttribute("hidden");
         butGetCorrect.removeAttribute("hidden");
+    }
+}
+function getCorrectFun()
+{
+    if(butGetCorrect.innerText==="Get Correct Sentence")
+    {
+        senCorrect.removeAttribute("hidden");
+        if(senCorrect.innerHTML==='')
+        {
+            for(let i = 0; i < allSen.length; i++)
+            {
+                senCorrect.innerHTML = senCorrect.innerHTML + allSen[i] + '<br>';
+            } 
+        }
+        butGetCorrect.innerText="Hide the correct sentence";
+    }
+    else if(butGetCorrect.innerText==="Hide the correct sentence")
+    {
+        senCorrect.setAttribute("hidden", false);
+        butGetCorrect.innerText="Get Answers";
+    }
+    else
+    {
+        senCorrect.removeAttribute("hidden");
+        butGetCorrect.innerText="Hide the correct sentence";
     }
 }
