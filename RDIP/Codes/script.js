@@ -119,35 +119,51 @@ hindi = [
 ]
 let p = document.getElementById('text');
 let butdiv = document.getElementById('but');
+let p2 = document.getElementById('text2');
+let butText = document.getElementById('textBut');
+let butReform= document.getElementById('reformBut');
+let sen = null;
 function Hidden(e)
 {
+    butReform.setAttribute("hidden", false);
+    p2.setAttribute("hidden", false);
+    butText.innerText = '';
     if ( e.value == '1' )
       {
         p.removeAttribute("hidden");
         butdiv.removeAttribute("hidden");
-        butdiv.innerHTML = '';
-        let sen = english[Math.floor(Math.random() * 10)][0].split(' ');
+        butdiv.innerHTML = '<br>';
+        sen = english[Math.floor(Math.random() * 10)][0].split(' ');
         sen.sort(function(a, b){return 0.5 - Math.random()});
         for (let i = 0; i < sen.length; i++)
         {
-            butdiv.innerHTML = butdiv.innerHTML + '<button>' + sen[i] + '</button> &nbsp';
+            butdiv.innerHTML = butdiv.innerHTML + '<span>&nbsp<button onclick="butClick(this)">' + sen[i] + '</button>&nbsp</span>';
         }
       }
     else if( e.value == '2' )
       {
         p.removeAttribute("hidden");
         butdiv.removeAttribute("hidden");
-        butdiv.innerHTML = '';
-        let sen = hindi[Math.floor(Math.random() * 7)][0].split(' ');
+        butdiv.innerHTML = '<br>';
+        sen = hindi[Math.floor(Math.random() * 7)][0].split(' ');
         sen.sort(function(a, b){return 0.5 - Math.random()});
         for (let i = 0; i < sen.length; i++)
         {
-            butdiv.innerHTML = butdiv.innerHTML + '<button>' + sen[i] + '</button> &nbsp';
+            butdiv.innerHTML = butdiv.innerHTML + '<span>&nbsp<button onclick="butClick(this)">' + sen[i] + '</button>&nbsp</span>';
         }
       }
     else
       {
         p.setAttribute("hidden", false);
         butdiv.setAttribute("hidden", false);
+        sen = null;
       }
+}
+function butClick(e)
+{
+    p2.removeAttribute("hidden");
+    butText.removeAttribute("hidden");
+    butText.innerText = butText.innerText + ' ' + e.innerText;
+    butReform.removeAttribute("hidden");
+    e.parentElement.setAttribute("hidden", false);
 }
