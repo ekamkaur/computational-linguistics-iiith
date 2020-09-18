@@ -118,14 +118,36 @@ hindi = [
     ]
 ]
 let p = document.getElementById('text');
+let butdiv = document.getElementById('but');
 function Hidden(e)
 {
-    if ( e.value == '1' || e.value == '2' )
+    if ( e.value == '1' )
       {
         p.removeAttribute("hidden");
+        butdiv.removeAttribute("hidden");
+        butdiv.innerHTML = '';
+        let sen = english[Math.floor(Math.random() * 10)][0].split(' ');
+        sen.sort(function(a, b){return 0.5 - Math.random()});
+        for (let i = 0; i < sen.length; i++)
+        {
+            butdiv.innerHTML = butdiv.innerHTML + '<button>' + sen[i] + '</button> &nbsp';
+        }
+      }
+    else if( e.value == '2' )
+      {
+        p.removeAttribute("hidden");
+        butdiv.removeAttribute("hidden");
+        butdiv.innerHTML = '';
+        let sen = hindi[Math.floor(Math.random() * 7)][0].split(' ');
+        sen.sort(function(a, b){return 0.5 - Math.random()});
+        for (let i = 0; i < sen.length; i++)
+        {
+            butdiv.innerHTML = butdiv.innerHTML + '<button>' + sen[i] + '</button> &nbsp';
+        }
       }
     else
       {
         p.setAttribute("hidden", false);
+        butdiv.setAttribute("hidden", false);
       }
 }
