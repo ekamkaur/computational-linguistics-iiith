@@ -167,3 +167,15 @@ function butClick(e)
     butReform.removeAttribute("hidden");
     e.parentElement.setAttribute("hidden", false);
 }
+function reformFun()
+{
+    p2.setAttribute("hidden", false);
+    butText.innerText = '';
+    butText.setAttribute("hidden", false);
+    butReform.setAttribute("hidden", false);
+    butdiv.innerHTML = '<br>';
+    for (let i = 0; i < sen.length; i++)
+    {
+        butdiv.innerHTML = butdiv.innerHTML + '<span>&nbsp<button onclick="butClick(this)">' + sen[i] + '</button>&nbsp</span>';
+    }
+}
