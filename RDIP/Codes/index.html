@@ -4,46 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Experiment-1</title>
 </head>
-<body>
-    <div style="text-align: center; padding-top: 3ch;">
+<body style="background-color:lightgreen;"></body>
+    <div class="wholediv">
+        <div>
+            <h1 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Forming Sentences</h1><br>
+        </div>
         <select id="lang" onchange="Hidden(this)">
             <option value="0">--Select a language--</option>
             <option value="1">English</option>
             <option value="2">Hindi</option>
         </select>
         <div>
-            <p hidden id="text" style="color: blue;">
-                <b>Form a sentence (Declarative or Interrogative or any other type) from the given words</b><br>
+            <p hidden id="text" class="blue">
+                <br><b>Form a sentence (Declarative or Interrogative or any other type) from the given words</b><br>
                 <i>(select the buttons in proper order)</i>
             </p>
             <div hidden id="but">
-            </div>
-            <p hidden id="text2"  style="color: blue;">
+            </div><br>
+            <p hidden id="text2" class="blue">
                 <b>Formed Sentence</b><br>               
                 <i>(after selecting the words)</i>
             </p>
             <h3 hidden id="textBut">
-            </h3>
-            <button hidden id="reformBut" onclick="reformFun()">Re-form the sentence
+            </h3><br>
+            <button hidden id="reformBut" onclick="reformFun()" type="button" class="btn btn-warning">Re-form the sentence
             </button><br><br>
-            <button hidden id="checkBut" onclick="checkFun()">Check the correctness of this sentence
-            </button>
+            <button hidden id="checkBut" onclick="checkFun()" type="button" class="btn btn-primary">Check the correctness of this sentence
+            </button><br><br>
             <div>
-                <h2 hidden id="rightAns" style="color: green;">
+                <h2 hidden id="rightAns" class="green">
                     Right Answer!!!
                 </h2>
-                <h2 hidden id="wrongAns" style="color: red;">
+                <h2 hidden id="wrongAns" class="red">
                     Wrong Answer!!!
                 </h2>
-            </div>
-            <button hidden id = "getCorrectBut" onclick="getCorrectFun()">Get Correct Sentence
+            </div><br>
+            <button hidden id = "getCorrectBut" onclick="getCorrectFun()" type="button" class="btn btn-secondary">Get Correct Sentence
             </button><br><br>
-            <div hidden id="correctSen">
-            </div>
+            <h5 hidden id="correctSen">
+            </h5>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="/script.js"></script>
 </body>
 </html>

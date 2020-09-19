@@ -153,7 +153,7 @@ function Hidden(e)
         sen.sort(function(a, b){return 0.5 - Math.random()});
         for (let i = 0; i < sen.length; i++)
         {
-            butdiv.innerHTML = butdiv.innerHTML + '<span>&nbsp<button onclick="butClick(this)">' + sen[i] + '</button>&nbsp</span>';
+            butdiv.innerHTML = butdiv.innerHTML + '<span>&nbsp<button onclick="butClick(this)" type="button" class="btn btn-dark">' + sen[i] + '</button>&nbsp</span>';
         }
       }
     else if( e.value == '2' )
@@ -167,7 +167,7 @@ function Hidden(e)
         sen.sort(function(a, b){return 0.5 - Math.random()});
         for (let i = 0; i < sen.length; i++)
         {
-            butdiv.innerHTML = butdiv.innerHTML + '<span>&nbsp<button onclick="butClick(this)">' + sen[i] + '</button>&nbsp</span>';
+            butdiv.innerHTML = butdiv.innerHTML + '<span>&nbsp<button onclick="butClick(this)" type="button" class="btn btn-dark">' + sen[i] + '</button>&nbsp</span>';
         }
       }
     else
@@ -176,6 +176,7 @@ function Hidden(e)
         butdiv.setAttribute("hidden", false);
         sen = null;
         lenRemain = null;
+        alert('Select language');
       }
 }
 function butClick(e)
@@ -203,7 +204,7 @@ function reformFun()
     butdiv.innerHTML = '<br>';
     for (let i = 0; i < sen.length; i++)
     {
-        butdiv.innerHTML = butdiv.innerHTML + '<span>&nbsp<button onclick="butClick(this)">' + sen[i] + '</button>&nbsp</span>';
+        butdiv.innerHTML = butdiv.innerHTML + '<span>&nbsp<button onclick="butClick(this)" type="button" class="btn btn-dark">' + sen[i] + '</button>&nbsp</span>';
     }
     butCheck.setAttribute("hidden", false);
     ansRight.setAttribute("hidden", false);
